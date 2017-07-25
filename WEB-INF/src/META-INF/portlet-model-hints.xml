@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.alain.monetizacion.model.PayPal">
+		<field name="paypalUser" type="String" />
+		<field name="paypalPassword" type="String" />
+		<field name="paypalFirm" type="String" />
+		<field name="paypalEmail" type="String" />
+		<field name="configurationId" type="long" />
+	</model>
+	<model name="com.alain.monetizacion.model.Role_Config">
+		<field name="roleId" type="long" />
+		<field name="configurationId" type="long" />
+	</model>
+	<model name="com.alain.monetizacion.model.SubsConfiguration">
+		<field name="configurationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="description" type="String" />
+		<field name="amount" type="double" />
+		<field name="cycle" type="String" />
+		<field name="time" type="int" />
+	</model>
+	<model name="com.alain.monetizacion.model.Subscription">
+		<field name="subscriptionId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="expireDate" type="Date" />
+		<field name="payment" type="double" />
+		<field name="configurationId" type="long" />
+		<field name="paypalProfile" type="String" />
+		<field name="isActive" type="boolean" />
+	</model>
+</model-hints>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.alain.monetizacion.service.PayPalLocalService" class="com.alain.monetizacion.service.impl.PayPalLocalServiceImpl" />
+	<bean id="com.alain.monetizacion.service.persistence.PayPalPersistence" class="com.alain.monetizacion.service.persistence.PayPalPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alain.monetizacion.service.Role_ConfigLocalService" class="com.alain.monetizacion.service.impl.Role_ConfigLocalServiceImpl" />
+	<bean id="com.alain.monetizacion.service.persistence.Role_ConfigPersistence" class="com.alain.monetizacion.service.persistence.Role_ConfigPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alain.monetizacion.service.SubsConfigurationLocalService" class="com.alain.monetizacion.service.impl.SubsConfigurationLocalServiceImpl" />
+	<bean id="com.alain.monetizacion.service.persistence.SubsConfigurationPersistence" class="com.alain.monetizacion.service.persistence.SubsConfigurationPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alain.monetizacion.service.SubscriptionLocalService" class="com.alain.monetizacion.service.impl.SubscriptionLocalServiceImpl" />
+	<bean id="com.alain.monetizacion.service.persistence.SubscriptionPersistence" class="com.alain.monetizacion.service.persistence.SubscriptionPersistenceImpl" parent="basePersistence" />
+</beans>

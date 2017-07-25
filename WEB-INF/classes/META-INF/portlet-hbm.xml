@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.alain.monetizacion.model.PayPal" />
+	<import class="com.alain.monetizacion.model.Role_Config" />
+	<import class="com.alain.monetizacion.model.SubsConfiguration" />
+	<import class="com.alain.monetizacion.model.Subscription" />
+	<class name="com.alain.monetizacion.model.impl.PayPalImpl" table="MT_PayPal">
+		<cache usage="read-write" />
+		<id name="configurationId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="paypalUser" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="paypalPassword" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="paypalFirm" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="paypalEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.alain.monetizacion.model.impl.Role_ConfigImpl" table="MT_Role_Config">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.alain.monetizacion.service.persistence.Role_ConfigPK">
+			<key-property name="roleId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="configurationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+	</class>
+	<class name="com.alain.monetizacion.model.impl.SubsConfigurationImpl" table="MT_SubsConfiguration">
+		<cache usage="read-write" />
+		<id name="configurationId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="amount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="cycle" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="time" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="time_" />
+	</class>
+	<class name="com.alain.monetizacion.model.impl.SubscriptionImpl" table="MT_Subscription">
+		<cache usage="read-write" />
+		<id name="subscriptionId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="expireDate" type="org.hibernate.type.TimestampType" />
+		<property name="payment" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="configurationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="paypalProfile" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="isActive" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+</hibernate-mapping>
